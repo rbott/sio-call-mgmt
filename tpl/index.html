@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>sipgate.io Call Management App</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="jquery-mobile/jquery.mobile-1.4.5.min.css" />
+		<link rel="stylesheet" href="sio-call-mgmt.css" />
+		<script src="jquery-mobile/jquery-1.11.1.min.js"></script>
+		<script src="jquery-mobile/jquery.mobile-1.4.5.min.js"></script>
+		<script src="page-nav.js"></script>
+		</head>
+	<body>
+	{if="$authenticated == false"}
+	{include="widget_login"}
+	{else}
+	{include="widget_settings"}
+	{/if}
+	</body>
+</html>

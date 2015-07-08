@@ -1,0 +1,19 @@
+<div data-role="page" id="LoginPage" class="pages">
+	<div data-role="header">
+		<h1>sipgate.io Call Management Login</h1>
+	</div><!-- /header -->
+
+	<div role="main" class="ui-content">
+		{if="$_GET.login == 'false'"}Benutzername oder Passwort falsch{/if}
+		<form method="POST" action="action.php" data-ajax="false">
+			<input name="method" id="method" value="login" type="hidden">
+			<input name="username" id="username" placeholder="Benutzername" value="" type="text">
+			<input name="password" id="password" placeholder="Passwort" value="" type="password">
+			<button class="ui-shadow ui-btn ui-corner-all" type="submit" id="submit">Anmelden</button>
+		</form>
+	</div><!-- /content -->
+	<div data-role="footer" style="text-align:center">
+		<h4>&copy; Rudolph Bott 2015</h4>
+	</div><!-- /footer -->
+</div><!-- /page -->
+

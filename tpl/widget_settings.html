@@ -1,0 +1,36 @@
+<div data-role="page" id="LoginPage" class="pages">
+	<div data-role="header">
+		<h1>sipgate.io Call Management for {$userDetails.fullName}</h1>
+	</div><!-- /header -->
+
+	<div role="main" class="ui-content">
+		<div class="ui-grid-b ui-responsive">
+			<div class="ui-block-a">
+				<h3>Configured Phone Numbers</h3>
+				<ul data-role="listview" data-inset="true">
+				{loop="$userDetails.phoneNumbers"}
+					<li>{$value}</li>
+				{/loop}
+			</ul>
+			</div>
+			<div class="ui-block-b">
+				<h3>DND Status</h3>
+				<form>
+					<input data-role="flipswitch" name="dndSetting" id="dndSetting" type="checkbox" {if="$userDetails.dnd == true"}checked="checked" {/if}>
+				</form>
+			</div>
+			<div class="ui-block-c">
+				<h3>Redirect Status</h3>
+				<form>
+					<input data-role="flipswitch" name="redirectSetting" id="redirectSetting" type="checkbox" {if="$userDetails.redirect == true"}checked="checked" {/if}>
+					<input name="redirectTo" id="redirectTo" value="{$userDetails.redirectTo}" placeholder="not set" type="text">
+				</form>
+			</div>
+		</div>
+
+	</div><!-- /content -->
+	<div data-role="footer" style="text-align:center">
+		<h4>&copy; Rudolph Bott 2015</h4>
+	</div><!-- /footer -->
+</div><!-- /page -->
+
