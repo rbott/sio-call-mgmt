@@ -1,6 +1,6 @@
 <?php
 include_once('includes/sio-call-mgmt.php');
-include_once('config/main-config.php');
+include_once('config/config.inc.php');
 
 $sio = new sioCallMgmt();
 
