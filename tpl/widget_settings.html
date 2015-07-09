@@ -1,9 +1,10 @@
-<div data-role="page" id="LoginPage" class="pages">
+<div data-role="page" id="SettingsPage" class="pages">
 	<div data-role="header">
 		<h1>sipgate.io Call Management for {$userDetails.fullName}</h1>
 	</div><!-- /header -->
 
 	<div role="main" class="ui-content">
+		<form id="phone-settings" data-ajax="true">
 		<div class="ui-grid-b ui-responsive">
 			<div class="ui-block-a">
 				<h3>Configured Phone Numbers</h3>
@@ -15,20 +16,32 @@
 			</div>
 			<div class="ui-block-b">
 				<h3>DND Status</h3>
-				<form>
-					<input data-role="flipswitch" name="dndSetting" id="dndSetting" type="checkbox" {if="$userDetails.dnd == true"}checked="checked" {/if}>
-				</form>
+					<select id="dndSetting" name="dndSetting" data-role="flipswitch">
+						<option value="off"{if="$userDetails.dnd == false"} selected=""{/if}>Off</option>
+						<option value="on"{if="$userDetails.dnd == true"} selected=""{/if}>On</option>
+					</select>
 			</div>
 			<div class="ui-block-c">
 				<h3>Redirect Status</h3>
-				<form>
-					<input data-role="flipswitch" name="redirectSetting" id="redirectSetting" type="checkbox" {if="$userDetails.redirect == true"}checked="checked" {/if}>
+					<select id="redirectSetting" name="redirectSetting" data-role="flipswitch">
+						<option value="off"{if="$userDetails.redirect == false"} selected=""{/if}>Off</option>
+						<option value="on"{if="$userDetails.redirect == true"} selected=""{/if}>On</option>
+					</select>
 					<input name="redirectTo" id="redirectTo" value="{$userDetails.redirectTo}" placeholder="not set" type="text">
-				</form>
 			</div>
 		</div>
 
+		<div class="ui-grid-b ui-responsive">
+			<div class="ui-block-a">
+				<input type="button" data-theme="b" name="submit" id="submit" value="Submit">
+			</div>
+		</div>
+		</form>
 	</div><!-- /content -->
+	<div data-role="popup" id="popup-saved">
+		<p>The settings have been saved.</p>
+	</div>
+
 	<div data-role="footer" style="text-align:center">
 		<h4>&copy; Rudolph Bott 2015</h4>
 	</div><!-- /footer -->

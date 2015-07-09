@@ -117,7 +117,7 @@ class sioCallMgmt {
 	}
 
 	function setDnd($val) {
-		$stmt = $this->con->prepare("UPDATE users SET dnd=? WHERE user_id=?");
+		$stmt = $this->con->prepare("UPDATE users SET dnd=? WHERE id=?");
 		switch($val) {
 		case true:
 			$sqlVal = "Y";
@@ -148,7 +148,7 @@ class sioCallMgmt {
 	}
 
 	function setRedirect($val) {
-		$stmt = $this->con->prepare("UPDATE users SET redirect=? WHERE user_id=?");
+		$stmt = $this->con->prepare("UPDATE users SET redirect=? WHERE id=?");
 		switch($val) {
 		case true:
 			$sqlVal = "Y";
@@ -174,7 +174,7 @@ class sioCallMgmt {
 
 	function setRedirectTo($number) {
 		if(is_numeric($number)) {
-			$stmt = $this->con->prepare("UPDATE users SET redirect_to=? WHERE user_id=?");
+			$stmt = $this->con->prepare("UPDATE users SET redirect_to=? WHERE id=?");
 			$stmt->bind_param("si",$number,$this->userId);
 			$stmt->execute();
 			$stmt->close();

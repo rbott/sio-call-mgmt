@@ -19,6 +19,34 @@ case "login":
 		Header("Location: index.php?login=false");
 	}
 	break;
+case "settings":
+	session_start();
+	if(!empty($_SESSION["isAuthenticated"]) && $_SESSION["isAuthenticated"]) {
+		$sio->setUserId($_SESSION["userId"]);
+		switch($_POST["dnd"]) {
+		case "on":
+			$sio->setDnd(true);
+			break;
+		case "off":
+			$sio->setDnd(false);
+			break;
+		}
+		switch($_POST["redirect"]) {
+		case "on":
+			$sio->setRedirect(true);
+			break;
+		case "off":
+			$sio->setRedirect(false);
+			break;
+		}
+		$sio->setRedirectTo($_POST["redirectTo"]);
+		$message = "OK";
+	}
+	else {
+		$message = "not OK";
+	}
+	echo json_encode($message);
+	break;
 default:
 	Header("Location: index.php");
 }
